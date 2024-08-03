@@ -16,13 +16,10 @@ export const verifyToken = (request: Request, response: Response, next: NextFunc
     if (!token) return response.status(401).json({ message: 'Unauthorized' });
     jwt.verify(token, env.JWT_SECRET, async (error: VerifyErrors | null, payload: any) => {
       if (error) return response.status(403).json({ message: 'Token is not valid' });
-      request.body.user = {
+      request.user = {
         id: payload.id,
         email: payload.email
       };
-
-      // request.userId = payload.id;
-      // request.userEmail = payload.email;
       next();
     });
   } catch (error) {

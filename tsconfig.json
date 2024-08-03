@@ -13,8 +13,8 @@
     "noUncheckedIndexedAccess": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "node16",
-    
+    "moduleResolution": "node16"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "express.d.ts"],
+  "files": ["express.d.ts"]
 }
